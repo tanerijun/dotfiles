@@ -1,0 +1,220 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  // Looks
+  "theme": "Nord",
+  "icon_theme": "Zed (Default)",
+  "tab_bar": {
+    "show": false
+  },
+  "buffer_font_family": "Maple Mono NF CN",
+  "buffer_font_size": 14,
+  "buffer_font_features": {
+    "calt": true
+  },
+  "terminal": {
+    "font_size": 12,
+    "toolbar": {
+      "breadcrumbs": false
+    },
+    "button": true
+  },
+  "gutter": {
+    "runnables": false
+  },
+  "cursor_blink": true,
+  "cursor_shape": "bar",
+  "hide_mouse": "on_typing_and_movement",
+  "indent_guides": {
+    "enabled": true,
+    "line_width": 1,
+    "active_line_width": 1,
+    "coloring": "fixed",
+    "background_coloring": "disabled"
+  },
+  "line_indicator_format": "long",
+  "title_bar": {
+    "show_branch_icon": true,
+    "show_branch_name": true,
+    "show_project_items": true,
+    "show_onboarding_banner": true,
+    "show_sign_in": true,
+    "show_user_picture": true
+  },
+
+  // Zed
+  "auto_update": true,
+  "collaboration_panel": {
+    "button": false
+  },
+  "project_panel": {
+    "dock": "right",
+    "auto_fold_dirs": false
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "vim_mode": false,
+  "base_keymap": "VSCode",
+  "restore_on_startup": "last_session",
+  "restore_on_file_reopen": true,
+  "close_on_file_delete": true,
+  "confirm_quit": true,
+  "when_closing_with_no_tabs": "keep_window_open",
+  "use_system_path_prompts": false,
+  "use_system_prompts": false,
+  "scrollbar": {
+    "show": "auto",
+    "cursors": true,
+    "git_diff": true,
+    "search_results": true,
+    "selected_text": true,
+    "selected_symbol": true,
+    "diagnostics": "all",
+    "axes": {
+      "horizontal": true,
+      "vertical": true
+    }
+  },
+  "drag_and_drop_selection": {
+    "enabled": false
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": true,
+    "selections_menu": true,
+    "agent_review": true,
+    "code_actions": false
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/._*", // macOS appleDouble
+    "**/routeTree.gen.ts" // Tanstack router generated file
+  ],
+
+  // AI
+  "agent": {
+    "always_allow_tool_actions": true,
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3-5-sonnet"
+    },
+    "default_profile": "write",
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    },
+    "default_view": "text_thread",
+    "notify_when_agent_waiting": "primary_screen",
+    "enable_feedback": false,
+    "button": true
+  },
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "edit_predictions": {
+    "mode": "subtle",
+    "enabled_in_text_threads": true
+  },
+  "show_edit_predictions": false,
+
+  // Editing
+  "auto_signature_help": false,
+  "use_autoclose": true,
+  "use_auto_surround": true,
+  "ensure_final_newline_on_save": true,
+  "enable_language_server": true,
+  "formatter": "auto",
+  "format_on_save": "on",
+  "preferred_line_length": 100,
+  "hard_tabs": false,
+  "remove_trailing_whitespace_on_save": true,
+  "expand_excerpt_lines": 10,
+
+  // Language Specific
+  "languages": {
+    "JavaScript": {
+      "formatter": "prettier",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TypeScript": {
+      "formatter": "prettier",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TSX": {
+      "formatter": "prettier",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "Python": {
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": true,
+            "source.fixAll.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ],
+      "language_servers": ["pyright", "ruff"]
+    }
+  },
+
+  // Remote
+  "ssh_connections": [
+    {
+      "host": "viplab_51",
+      "projects": [
+        {
+          "paths": [
+            "/home/tanerijun/gaze-tracker-model"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "viplab_57",
+      "projects": [
+        {
+          "paths": [
+            "/home/vct/gaze-tracker-model"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "project_hanabi",
+      "projects": []
+    }
+  ]
+}

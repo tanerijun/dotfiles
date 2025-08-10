@@ -1,0 +1,11 @@
+theme = "nord"
+#theme = "/Users/tvince/.config/ghostty/theme"
+font-family = "Maple Mono NF CN"
+
+#font-size = 15
+#adjust-cell-height = 27%
+
+# disable ligatures
+#font-feature = -calt
+#font-feature = -liga
+#font-feature = -dlig

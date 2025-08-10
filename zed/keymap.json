@@ -1,0 +1,42 @@
+[
+  {
+    "bindings": {
+      "alt-up": "editor::MoveLineUp",
+      "alt-down": "editor::MoveLineDown",
+      "shift-alt-up": "editor::SelectLargerSyntaxNode",
+      "shift-alt-down": "editor::SelectSmallerSyntaxNode",
+      "cmd-shift-e": "project_panel::ToggleFocus",
+      "cmd-shift-g": "git_panel::ToggleFocus",
+      "cmd-k": "editor::Hover",
+      "shift shift": "file_finder::Toggle",
+      "cmd-shift-s": "workspace::SaveWithoutFormat"
+    }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "cmd-shift-g": "git_panel::Close"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "cmd-k cmd-c": "project_panel::CollapseAllEntries"
+    }
+  },
+  {
+    "context": "!ContextEditor > Editor && mode == full",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-;": "editor::GoToHunk",
+      "cmd-shift-;": "editor::GoToPreviousHunk"
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "cmd-n": "agent::NewTextThread",
+      "cmd-shift-n": "agent::NewThread"
+    }
+  }
+]
