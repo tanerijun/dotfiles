@@ -1,0 +1,84 @@
+#!/bin/bash
+
+source "$CONFIG_DIR/helpers/constants.sh"
+
+ITEM_DIR="$CONFIG_DIR/items"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+##### Bar Appearance #####
+bar=(
+  height=40
+  color=$BAR_BG_COLOR
+  blur_radius=4
+  border_width=2
+  border_color=$BAR_BORDER_COLOR
+  corner_radius=10
+  shadow=off
+  position=top
+  sticky=on
+  padding_right=10
+  padding_left=10
+  y_offset=10
+  margin=10
+  topmost=window
+)
+
+sketchybar --bar "${bar[@]}"
+
+##### Default Item Properties #####
+default=(
+  padding_left=3
+  padding_right=3
+  icon.font.family="$BAR_FONT_FAMILY"
+  icon.font.style="Bold"
+  icon.font.size=13.0
+  icon.color=$BAR_ICON_COLOR
+  icon.highlight_color=$BAR_ICON_COLOR_HIGHLIGHT
+  icon.padding_left=3
+  icon.padding_right=3
+  label.font.family="$BAR_FONT_FAMILY"
+  label.font.style="Bold"
+  label.font.size=13.0
+  label.color=$BAR_LABEL_COLOR
+  label.highlight_color=$BAR_LABEL_COLOR_HIGHLIGHT
+  label.padding_left=3
+  label.padding_right=3
+  background.height=26
+  background.corner_radius=9
+  background.border_width=2
+  popup.background.border_width=2
+  popup.background.corner_radius=9
+  popup.background.color=$BAR_POPUP_BG_COLOR
+  popup.background.border_color=$BAR_POPUP_BORDER_COLOR
+  popup.blur_radius=20
+  popup.background.shadow.drawing=on
+  scroll_texts=on
+)
+sketchybar --default "${default[@]}"
+
+##### LEFT #####
+source "$ITEM_DIR/apple.sh"
+source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/front_app.sh"
+
+##### RIGHT #####
+
+sketchybar --add item clock right \
+           --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
+           --add item volume right \
+           --set volume script="$PLUGIN_DIR/volume.sh" \
+           --subscribe volume volume_change \
+           --add item battery right \
+           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+           --subscribe battery system_woke power_source_change \
+
+##### Force all scripts to run the first time (never do this in a script) #####
+sketchybar --update
+
+# Set initial active workspace highlighting after everything is loaded
+INITIAL_FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
+if [ -n "$INITIAL_FOCUSED_WORKSPACE" ]; then
+  sketchybar --set space.$INITIAL_FOCUSED_WORKSPACE icon.highlight=true \
+                           label.highlight=true \
+                           background.border_color=$WORKSPACE_ITEM_BORDER_HIGHLIGHT_COLOR
+fi
