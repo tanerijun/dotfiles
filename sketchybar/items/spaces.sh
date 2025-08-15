@@ -12,8 +12,7 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
       icon.color=$WORKSPACE_ICON_COLOR
       icon.highlight_color=$WORKSPACE_ICON_HIGHLIGHT_COLOR
       icon.padding_left=10
-      padding_left=2
-      padding_right=2
+      icon.padding_right=0
       label.padding_right=20
       label.color=$WORKSPACE_LABEL_COLOR
       label.highlight_color=$WORKSPACE_LABEL_HIGHLIGHT_COLOR
@@ -52,6 +51,7 @@ space_creator=(
   icon=""
   padding_left=10
   label.drawing=off
+  icon.drawing=off # enable if front_app is enabled
   icon.font.size="12.0"
   script="$PLUGIN_DIR/space_windows.sh"
   icon.color=$BAR_ICON_COLOR

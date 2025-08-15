@@ -26,23 +26,23 @@
 
 ##### Nord Colors in 0xAARRGGBB #####
 # https://www.nordtheme.com/docs/colors-and-palettes
-NORD0="0xFF2E3440" # Darkest background
-NORD1="0xFF3B4252" # Elevated/Focused background, border, shadow
-NORD2="0xFF434C5E" # Active object background
-NORD3="0xFF4C566A" # Brightest shade of NORD0
-NORD4="0xFFD8DEE9" # Light text
-NORD5="0xFFE5E9F0" # Brighter
-NORD6="0xFFECEFF4" # Brightest
-NORD7="0xFF8FBCBB" # Secondary color
-NORD8="0xFF88C0D0" # Primary color
-NORD9="0xFF81A1C1" # Darkened and less saturated
-NORD10="0xFF5E81AC" # Tertiary
-NORD11="0xFFBF616A" # Red
-NORD12="0xFFD08770" # Orange
-NORD13="0xFFEBCB8B" # Yellow
-NORD14="0xFFA3BE8C" # Green
-NORD15="0xFFB48EAD" # Purple
-TRANSPARENT="0x00000000"
+export NORD0="0xFF2E3440" # Darkest background
+export NORD1="0xFF3B4252" # Elevated/Focused background, border, shadow
+export NORD2="0xFF434C5E" # Active object background
+export NORD3="0xFF4C566A" # Brightest shade of NORD0
+export NORD4="0xFFD8DEE9" # Light text
+export NORD5="0xFFE5E9F0" # Brighter
+export NORD6="0xFFECEFF4" # Brightest
+export NORD7="0xFF8FBCBB" # Secondary color
+export NORD8="0xFF88C0D0" # Primary color
+export NORD9="0xFF81A1C1" # Darkened and less saturated
+export NORD10="0xFF5E81AC" # Tertiary
+export NORD11="0xFFBF616A" # Red
+export NORD12="0xFFD08770" # Orange
+export NORD13="0xFFEBCB8B" # Yellow
+export NORD14="0xFFA3BE8C" # Green
+export NORD15="0xFFB48EAD" # Purple
+export TRANSPARENT="0x00000000"
 
 export BAR_BG_COLOR="0xCC2E3440" # NORD0 with 80% opacity
 export BAR_BORDER_COLOR=$NORD2
@@ -61,3 +61,22 @@ export WORKSPACE_LABEL_HIGHLIGHT_COLOR=$NORD4
 export WORKSPACE_ITEM_BORDER_COLOR=$NORD2
 export WORKSPACE_ITEM_BORDER_HIGHLIGHT_COLOR=$NORD3
 export WORKSPACE_ITEM_BG_COLOR=$TRANSPARENT
+
+export BATTERY_GREEN=$NORD14
+export BATTERY_YELLOW=$NORD13
+export BATTERY_RED=$NORD11
+
+export VOLUME_ICON_COLOR=$NORD15
+export VOLUME_SLIDER_HIGHLIGHT_COLOR=$NORD10
+export VOLUME_SLIDER_BG_COLOR=$NORD9
+export VOLUME_SLIDER_KNOB_COLOR=$NORD4
+export VOLUME_OUTPUT_POPUP_LABEL_COLOR=$NORD4
+export VOLUME_OUTPUT_POPUP_SELECTED_LABEL_COLOR=$NORD8
+
+export NETWORK_NOT_CONNECTED_ICON_COLOR=$NORD3
+export NETWORK_WIFI_ICON_COLOR=$NORD7
+export NETWORK_VPN_ICON_COLOR=$NORD14
+
+export MEDIA_ICON_COLOR=$NORD3
+export MEDIA_ICON_PLAYING_COLOR=$NORD15
+export MEDIA_LABEL_COLOR=$NORD4

@@ -31,7 +31,7 @@ function icon_map() {
  "Airmail")
       icon_result=":airmail:"
       ;;
- "Alacritty")
+ "Alacritty" | "alacritty")
       icon_result=":alacritty:"
       ;;
  "Alfred")
@@ -424,7 +424,7 @@ function icon_map() {
  "Mullvad Browser")
       icon_result=":mullvad_browser:"
       ;;
- "Music" | "音乐" | "Musique" | "ミュージック" | "Youtube Music")
+ "Music" | "音乐" | "Musique" | "ミュージック" | "Youtube Music" | "YouTube Music")
       icon_result=":music:"
       ;;
  "Neovide" | "neovide")
@@ -789,5 +789,8 @@ function icon_map() {
 ### END-OF-ICON-MAP
 
 icon_map "$1"
+
+# echo "App: $1 -> Icon: $icon_result" >> /tmp/sketchybar_icon_map_debug.log
+# grep ':default:' /tmp/sketchybar_icon_map_debug.log
 
 echo "$icon_result"
