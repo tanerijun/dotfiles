@@ -18,7 +18,6 @@ volume_slider=(
 volume_icon=(
     click_script="$PLUGIN_DIR/volume_click.sh"
     icon="󰕾"
-    icon.color=$VOLUME_ICON_COLOR
     icon.font.size=16
     padding_right=0
     label.padding_right=0
