@@ -4,4 +4,4 @@ Configuration files
 
 ## Screenshot
 
-![Desktop](screenshots/2025-08-15-22-44-37.png)
+![Desktop](screenshots/2025-08-15-23-11-19.png)
