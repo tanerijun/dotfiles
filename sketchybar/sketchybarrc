@@ -7,10 +7,10 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 ##### Bar Appearance #####
 bar=(
-  height=40
+  height=30
   color=$BAR_BG_COLOR
-  blur_radius=4
-  border_width=2
+  blur_radius=2
+  #border_width=2
   border_color=$BAR_BORDER_COLOR
   corner_radius=10
   shadow=off
@@ -18,8 +18,8 @@ bar=(
   sticky=on
   padding_right=10
   padding_left=10
-  y_offset=10
-  margin=10
+  y_offset=5
+  #margin=10
   topmost=window
 )
 
@@ -50,7 +50,7 @@ default=(
   popup.background.corner_radius=9
   popup.background.color=$BAR_POPUP_BG_COLOR
   popup.background.border_color=$BAR_POPUP_BORDER_COLOR
-  popup.blur_radius=20
+  popup.blur_radius=12
   popup.background.shadow.drawing=on
   scroll_texts=on
 )
@@ -66,7 +66,8 @@ source "$ITEM_DIR/clock.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/ip_address.sh"
-source "$ITEM_DIR/media.sh"
+source "$ITEM_DIR/spotify.sh"
+# source "$ITEM_DIR/media.sh"
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
@@ -75,6 +76,6 @@ sketchybar --update
 INITIAL_FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
 if [ -n "$INITIAL_FOCUSED_WORKSPACE" ]; then
   sketchybar --set space.$INITIAL_FOCUSED_WORKSPACE icon.highlight=true \
-                           label.highlight=true \
-                           background.border_color=$WORKSPACE_ITEM_BORDER_HIGHLIGHT_COLOR
+    label.highlight=true \
+    background.border_color=$WORKSPACE_ITEM_BORDER_HIGHLIGHT_COLOR
 fi

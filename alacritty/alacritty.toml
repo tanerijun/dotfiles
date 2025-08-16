@@ -1,6 +1,8 @@
 [window]
-padding.x = 10
-padding.y = 10
+opacity = 0.9
+blur = true
+padding.x = 6
+padding.y = 4
 decorations = "buttonless"
 title = "Terminal"
 
@@ -9,7 +11,7 @@ normal.family = "Maple Mono NF CN"
 bold.family = "Maple Mono NF CN"
 italic.family = "Maple Mono NF CN"
 bold_italic.family = "Maple Mono NF CN"
-size = 13.0
+size = 14.0
 
 # Nord theme
 [colors.primary]

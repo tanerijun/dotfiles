@@ -40,6 +40,7 @@ exec-on-workspace-change = [
     '-c',
     '/opt/homebrew/opt/sketchybar/bin/sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE',
 ]
+
 # 2. Add --focus-follows-window to the workspace change binds. This forces the workspace to follow when a window is moved to another workspace.
 #    This will cause 'exec-on-workspace-change' to fire, keeping the bar updated. Without this, when windows are moved to a new space, they won't appear in the bar until the bar is focused.
 
@@ -63,12 +64,12 @@ preset = 'qwerty'
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 10
-inner.vertical = 10
-outer.left = 10
-outer.bottom = 10
-outer.top = 60
-outer.right = 10
+inner.horizontal = 7
+inner.vertical = 7
+outer.left = 7
+outer.bottom = 6
+outer.top = 40
+outer.right = 7
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
