@@ -1,10 +1,11 @@
 [window]
 opacity = 0.9
 blur = true
-padding.x = 6
-padding.y = 4
+padding.x = 3
+padding.y = 2
 decorations = "buttonless"
 title = "Terminal"
+option_as_alt = "OnlyLeft"
 
 [font]
 normal.family = "Maple Mono NF CN"
