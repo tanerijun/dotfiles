@@ -154,72 +154,40 @@ cmd-shift-f = 'fullscreen'
 cmd-ctrl-shift-f = 'macos-native-fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-cmd-shift-semicolon = 'mode service'
-cmd-shift-space = 'mode launcher'
-cmd-shift-backspace = 'mode free'
+cmd-shift-semicolon = ['mode service', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+cmd-shift-space = ['mode launcher', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+cmd-shift-backspace = ['mode free', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
-esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = [
-    'layout floating tiling',
-    'mode main',
-] # Toggle between floating and tiling layout
-backspace = ['close-all-windows-but-current', 'mode main']
+cmd-shift-semicolon = ['reload-config', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+r = ['flatten-workspace-tree', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+f = ['layout floating tiling', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+backspace = ['close-all-windows-but-current', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
 
-# sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-#s = ['layout sticky tiling', 'mode main']
-
-cmd-shift-h = ['join-with left', 'mode main']
-cmd-shift-j = ['join-with down', 'mode main']
-cmd-shift-k = ['join-with up', 'mode main']
-cmd-shift-l = ['join-with right', 'mode main']
-
-#down = 'volume down'
-#up = 'volume up'
-#shift-down = ['volume set 0', 'mode main']
+cmd-shift-h = ['join-with left', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+cmd-shift-j = ['join-with down', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+cmd-shift-k = ['join-with up', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+cmd-shift-l = ['join-with right', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
 
 [mode.launcher.binding]
-esc = ['reload-config', 'mode main']
-enter = [
-    'exec-and-forget alacritty msg create-window || alacritty',
-    "mode main",
-]
-a = [
-    'exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://perplexity.ai"',
-    "mode main",
-]
-b = [
-    'exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window',
-    "mode main",
-]
-shift-b = [
-    'exec-and-forget /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --incognito',
-    "mode main",
-]
-c = ['exec-and-forget open -a "Calendar"', "mode main"]
+cmd-shift-space = ['reload-config', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+enter = ['exec-and-forget alacritty msg create-window || alacritty', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+a = ['exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://perplexity.ai"', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+b = ['exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+shift-b = ['exec-and-forget /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --incognito', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+c = ['exec-and-forget open -a "Calendar"', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
 f = ['''exec-and-forget osascript -e '
     tell application "Finder"
         make new Finder window
         activate
     end tell'
-    ''', "mode main"]
-e = [
-    'exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://gmail.com"',
-    "mode main",
-]
-t = [
-    'exec-and-forget alacritty msg create-window --command btop || alacritty --command btop',
-    "mode main",
-]
-m = ['exec-and-forget open -a "Spotify"', "mode main"]
-n = [
-    'exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://keep.google.com"',
-    "mode main",
-]
+    ''', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+e = ['exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://gmail.com"', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+t = ['exec-and-forget alacritty msg create-window --command btop || alacritty --command btop', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+m = ['exec-and-forget open -a "Spotify"', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+n = ['exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://keep.google.com"', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
 
 [mode.free.binding]
-esc = "mode main"
-backspace = "mode main"
+cmd-shift-backspace = ['mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
