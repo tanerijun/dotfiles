@@ -89,6 +89,9 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+export EDITOR='/opt/homebrew/bin/hx'
+export VISUAL=$EDITOR
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -136,7 +139,19 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# yazi auto-cd
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+# uv shell completion
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
+
+alias z="zellij -l welcome"
 
 . "$HOME/.local/bin/env"

@@ -222,3 +222,4 @@ n = [
 
 [mode.free.binding]
 esc = "mode main"
+backspace = "mode main"
