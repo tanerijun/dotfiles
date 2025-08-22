@@ -64,12 +64,12 @@ preset = 'qwerty'
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 7
-inner.vertical = 7
-outer.left = 7
-outer.bottom = 6
-outer.top = 40
-outer.right = 7
+inner.horizontal = 4
+inner.vertical = 4
+outer.left = 4
+outer.bottom = 4
+outer.top = 32
+outer.right = 4
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -104,90 +104,118 @@ outer.right = 7
 # end tell'[]
 # '''
 
+# Tips: set hyper key to cmd + alt + ctrl
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-cmd-slash = 'layout tiles horizontal vertical'
-cmd-comma = 'layout accordion horizontal vertical'
+cmd-ctrl-alt-slash = 'layout tiles horizontal vertical'
+cmd-ctrl-alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-cmd-h = 'focus left'
-cmd-j = 'focus down'
-cmd-k = 'focus up'
-cmd-l = 'focus right'
+cmd-ctrl-alt-h = 'focus left'
+cmd-ctrl-alt-j = 'focus down'
+cmd-ctrl-alt-k = 'focus up'
+cmd-ctrl-alt-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-cmd-shift-h = 'move left'
-cmd-shift-j = 'move down'
-cmd-shift-k = 'move up'
-cmd-shift-l = 'move right'
+cmd-ctrl-alt-shift-h = 'move left'
+cmd-ctrl-alt-shift-j = 'move down'
+cmd-ctrl-alt-shift-k = 'move up'
+cmd-ctrl-alt-shift-l = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-cmd-minus = 'resize smart -50'
-cmd-equal = 'resize smart +50'
+cmd-ctrl-alt-minus = 'resize smart -50'
+cmd-ctrl-alt-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-cmd-1 = 'workspace 1'
-cmd-2 = 'workspace 2'
-cmd-3 = 'workspace 3'
-cmd-4 = 'workspace 4'
-cmd-5 = 'workspace 5'
-cmd-6 = 'workspace 6'
-cmd-7 = 'workspace 7'
-cmd-8 = 'workspace 8'
-cmd-9 = 'workspace 9'
-cmd-0 = 'workspace 10'
+cmd-ctrl-alt-1 = 'workspace 1'
+cmd-ctrl-alt-2 = 'workspace 2'
+cmd-ctrl-alt-3 = 'workspace 3'
+cmd-ctrl-alt-4 = 'workspace 4'
+cmd-ctrl-alt-5 = 'workspace 5'
+cmd-ctrl-alt-6 = 'workspace 6'
+cmd-ctrl-alt-7 = 'workspace 7'
+cmd-ctrl-alt-8 = 'workspace 8'
+cmd-ctrl-alt-9 = 'workspace 9'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-cmd-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
-cmd-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
-cmd-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
-cmd-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
-cmd-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
-cmd-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
-cmd-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
-cmd-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
-cmd-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
-cmd-shift-0 = 'move-node-to-workspace 10 --focus-follows-window'
+cmd-ctrl-alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+cmd-ctrl-alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+cmd-ctrl-alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+cmd-ctrl-alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+cmd-ctrl-alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+cmd-ctrl-alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+cmd-ctrl-alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+cmd-ctrl-alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+cmd-ctrl-alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
 
-cmd-tab = 'workspace-back-and-forth'
-cmd-shift-tab = 'move-workspace-to-monitor --wrap-around next'
-cmd-shift-f = 'fullscreen'
-cmd-ctrl-shift-f = 'macos-native-fullscreen'
+cmd-ctrl-alt-tab = 'workspace-back-and-forth'
+cmd-ctrl-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+cmd-ctrl-alt-shift-f = 'fullscreen'
+f11 = 'macos-native-fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-cmd-shift-semicolon = ['mode service', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-cmd-shift-space = ['mode launcher', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-cmd-shift-backspace = ['mode free', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+cmd-ctrl-alt-shift-semicolon = ['mode service']
 
-# 'service' binding mode declaration.
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-[mode.service.binding]
-cmd-shift-semicolon = ['reload-config', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-r = ['flatten-workspace-tree', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-f = ['layout floating tiling', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-backspace = ['close-all-windows-but-current', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-
-cmd-shift-h = ['join-with left', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-cmd-shift-j = ['join-with down', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-cmd-shift-k = ['join-with up', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-cmd-shift-l = ['join-with right', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-
-[mode.launcher.binding]
-cmd-shift-space = ['reload-config', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-enter = ['exec-and-forget alacritty msg create-window || alacritty', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-a = ['exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://perplexity.ai"', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-b = ['exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-shift-b = ['exec-and-forget /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --incognito', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-c = ['exec-and-forget open -a "Calendar"', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-f = ['''exec-and-forget osascript -e '
+cmd-ctrl-alt-t = [
+    'exec-and-forget alacritty msg create-window || alacritty',
+    'mode main',
+    'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar --trigger window_detected',
+]
+cmd-ctrl-alt-a = [
+    'exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://perplexity.ai"',
+    'mode main',
+    'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar --trigger window_detected',
+]
+cmd-ctrl-alt-b = [
+    'exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window',
+    'mode main',
+    'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar --trigger window_detected',
+]
+cmd-ctrl-alt-shift-b = [
+    'exec-and-forget /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --incognito',
+    'mode main',
+    'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar --trigger window_detected',
+]
+cmd-ctrl-alt-c = [
+    'exec-and-forget open -a "Calendar"',
+    'mode main',
+    'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar --trigger window_detected',
+]
+cmd-ctrl-alt-f = [
+    '''exec-and-forget osascript -e '
     tell application "Finder"
         make new Finder window
         activate
     end tell'
-    ''', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-e = ['exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://gmail.com"', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-t = ['exec-and-forget alacritty msg create-window --command btop || alacritty --command btop', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-m = ['exec-and-forget open -a "Spotify"', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-n = ['exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://keep.google.com"', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+    ''',
+    'mode main',
+    'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar --trigger window_detected',
+]
+cmd-ctrl-alt-e = [
+    'exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://gmail.com"',
+    'mode main',
+    'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar --trigger window_detected',
+]
+cmd-ctrl-alt-m = [
+    'exec-and-forget open -a "Spotify"',
+    'mode main',
+    'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar --trigger window_detected',
+]
+cmd-ctrl-alt-n = [
+    'exec-and-forget Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window --app="https://keep.google.com"',
+    'mode main',
+    'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar --trigger window_detected',
+]
 
-[mode.free.binding]
-cmd-shift-backspace = ['mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+# 'service' binding mode declaration.
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+cmd-ctrl-alt-shift-semicolon = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+h = ['join-with left', 'mode main']
+j = ['join-with down', 'mode main']
+k = ['join-with up', 'mode main']
+l = ['join-with right', 'mode main']

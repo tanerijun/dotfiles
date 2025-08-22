@@ -1,27 +1,27 @@
 #!/bin/sh
 
 sketchybar --add event aerospace_workspace_change
-sketchybar --add event aerospace_mode_change
+sketchybar --add event window_detected
 
 CURRENT_MODE=$(aerospace list-modes --current)
 MODE_LETTER=$(echo "$CURRENT_MODE" | cut -c1 | tr '[:lower:]' '[:upper:]')
 
-aerospace_mode=(
-  space=1
-  icon="$MODE_LETTER"
-  icon.color=$WORKSPACE_LABEL_HIGHLIGHT_COLOR
-  icon.padding_left=10
-  icon.width=28
-  label.drawing=off
-  label.y_offset=-1
-  background.color=$WORKSPACE_ITEM_BG_COLOR
-  background.border_color=$WORKSPACE_ITEM_BORDER_COLOR
-  script="$PLUGIN_DIR/aerospace_mode.sh"
-)
+# aerospace_mode=(
+#   space=1
+#   icon="$MODE_LETTER"
+#   icon.color=$WORKSPACE_LABEL_HIGHLIGHT_COLOR
+#   icon.padding_left=10
+#   icon.width=28
+#   label.drawing=off
+#   label.y_offset=-1
+#   background.color=$WORKSPACE_ITEM_BG_COLOR
+#   background.border_color=$WORKSPACE_ITEM_BORDER_COLOR
+#   script="$PLUGIN_DIR/aerospace_mode.sh"
+# )
 
-sketchybar --add space aerospace_mode left \
-           --set aerospace_mode "${aerospace_mode[@]}" \
-           --subscribe aerospace_mode aerospace_mode_change
+# sketchybar --add space aerospace_mode left \
+#            --set aerospace_mode "${aerospace_mode[@]}" \
+#            --subscribe aerospace_mode aerospace_mode_change
 
 for m in $(aerospace list-monitors | awk '{print $1}'); do
   for i in $(aerospace list-workspaces --monitor $m); do
@@ -80,4 +80,7 @@ space_creator=(
 
 sketchybar --add item space_creator left               \
            --set space_creator "${space_creator[@]}"   \
-           --subscribe space_creator aerospace_workspace_change
+           --subscribe space_creator aerospace_workspace_change \
+                                     front_app_switched \
+                                     window_detected \
+                                     system_woke

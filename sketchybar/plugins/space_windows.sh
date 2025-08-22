@@ -50,15 +50,25 @@ if [ "$SENDER" = "aerospace_workspace_change" ]; then
   # Handle display logic
   AEROSPACE_FOCUSED_MONITOR=$(aerospace list-monitors --focused | awk '{print $1}')
   AEROSPACE_WORKSPACE_FOCUSED_MONITOR=$(aerospace list-workspaces --monitor focused --empty no)
-  AEROSPACE_EMPTY_WORKESPACE=$(aerospace list-workspaces --monitor focused --empty)
+  AEROSPACE_EMPTY_WORKSPACE=$(aerospace list-workspaces --monitor focused --empty)
 
   for i in $AEROSPACE_WORKSPACE_FOCUSED_MONITOR; do
     sketchybar --set space.$i display=$AEROSPACE_FOCUSED_MONITOR
   done
 
-  for i in $AEROSPACE_EMPTY_WORKESPACE; do
+  for i in $AEROSPACE_EMPTY_WORKSPACE; do
     sketchybar --set space.$i display=0
   done
 
   sketchybar --set space.$CURRENT_FOCUSED display=$AEROSPACE_FOCUSED_MONITOR
+fi
+
+if [ "$SENDER" = "front_app_switched" ]; then
+  CURRENT_WORKSPACE=$(aerospace list-workspaces --focused)
+  reload_workspace_icon "$CURRENT_WORKSPACE"
+fi
+
+if [ "$SENDER" = "window_detected" ]; then
+  CURRENT_WORKSPACE=$(aerospace list-workspaces --focused)
+  reload_workspace_icon "$CURRENT_WORKSPACE"
 fi

@@ -1,0 +1,8 @@
+theme = "custom"
+
+[editor]
+line-number = "relative"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+F1 = ":toggle whitespace.render all none"

@@ -1,0 +1,106 @@
+[[language]]
+name = "python"
+auto-format = true
+language-servers = ["ty", "ruff"]
+formatter = { command = "ruff", args = ["format", "--line-length", "88", "-"] }
+roots = ["pyproject.toml"]
+
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+# formatter = { command = 'prettier', args = ["--parser", "html"] }
+auto-format = true
+
+[[language]]
+name = "css"
+language-servers = ["tailwindcss-ls", "vscode-css-language-server"]
+# formatter = { command = 'prettier', args = ["--parser", "css"] }
+formatter = { command = 'biome', args = ["format", "--stdin-file-path", "buffer.css"] }
+auto-format = true
+
+[[language]]
+name = "scss"
+language-servers = ["vscode-css-language-server"]
+formatter = { command = 'prettier', args = ["--parser", "scss"] }
+auto-format = true
+
+[[language]]
+name = "javascript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome-ls", "tailwindcss-ls" ]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'biome', args = ["format", "--stdin-file-path", "buffer.js"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome-ls", "tailwindcss-ls" ]
+# formatter = { command = "prettier", args = ["--parser", "typescript"] }
+formatter = { command = 'biome', args = ["format", "--stdin-file-path", "buffer.ts"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome-ls", "tailwindcss-ls" ]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'biome', args = ["format", "--stdin-file-path", "buffer.tsx"] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome-ls", "tailwindcss-ls" ]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'biome', args = ["format", "--stdin-file-path", "buffer.jsx"] }
+auto-format = true
+
+[[language]]
+name = "json"
+# formatter = { command = 'prettier', args = ["--parser", "json"] }
+formatter = { command = 'biome', args = ["format", "--stdin-file-path", "buffer.json"] }
+auto-format = true
+
+[[language]]
+name = "jsonc"
+# formatter = { command = 'prettier', args = ["--parser", "jsonc"] }
+formatter = { command = 'biome', args = ["format", "--stdin-file-path", "buffer.jsonc"] }
+auto-format = true
+
+[[language]]
+name = "yaml"
+formatter = { command = "prettier", args = ["--parser", "yaml"] }
+auto-format = true
+
+[[language]]
+name = "markdown"
+formatter = { command = 'prettier', args = ["--parser", "markdown"] }
+auto-format = true
+
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.eslint-ls]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[language-server.eslint-ls.config]
+format = false
+codeActionsOnSave = { mode = "all", "source.fixAll.eslint" = true }
+
+[language-server.biome-ls]
+command = "biome"
+args = ["lsp-proxy"]
+
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-css-language-server]
+command = "vscode-css-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-css-language-server.config.css.lint]
+unknownAtRules = "ignore" # workaround for TailwindV4

@@ -18,7 +18,7 @@ bar=(
   sticky=on
   padding_right=10
   padding_left=10
-  y_offset=5
+  y_offset=1
   #margin=10
   #topmost=window
 )
