@@ -66,8 +66,8 @@ source "$ITEM_DIR/clock.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/ip_address.sh"
-source "$ITEM_DIR/spotify.sh"
-# source "$ITEM_DIR/media.sh"
+# source "$ITEM_DIR/spotify.sh"
+source "$ITEM_DIR/media.sh"
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

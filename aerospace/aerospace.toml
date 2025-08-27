@@ -197,7 +197,7 @@ cmd-ctrl-alt-e = [
     'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar --trigger window_detected',
 ]
 cmd-ctrl-alt-m = [
-    'exec-and-forget open -a "Spotify"',
+    'exec-and-forget open -a "Youtube Music"',
     'mode main',
     'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar --trigger window_detected',
 ]
