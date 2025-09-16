@@ -1,11 +1,14 @@
-theme = "nord"
+theme = "vesper"
 #theme = "/Users/tvince/.config/ghostty/theme"
 font-family = "Maple Mono NF CN"
-
-#font-size = 15
+font-size = 13
 #adjust-cell-height = 27%
-
 # disable ligatures
 #font-feature = -calt
 #font-feature = -liga
 #font-feature = -dlig
+
+window-padding-x = 3
+window-padding-y = 0
+
+macos-option-as-alt = true
