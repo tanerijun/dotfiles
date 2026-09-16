@@ -4,19 +4,28 @@ set -euo pipefail
 # SCRIPT_DIR is the root of the skills directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Target registry mapping target identifier to destination directory and description
-declare -A TARGET_PATHS=(
-    ["gemini"]="$HOME/.gemini/config/skills"
-    ["oh-my-pi"]="$HOME/.agents/skills"
-)
-
-declare -A TARGET_DESCRIPTIONS=(
-    ["gemini"]="Google Antigravity / Gemini CLI (path: ~/.gemini/config/skills)"
-    ["oh-my-pi"]="Oh My Pi / omp CLI (path: ~/.agents/skills)"
-)
-
 # Ordered list of target keys
 REGISTERED_TARGETS=("gemini" "oh-my-pi")
+
+# Target registry mapping target identifier to destination directory and description
+# Uses functions instead of associative arrays (declare -A) for macOS default Bash 3.2 compatibility
+get_target_path() {
+    local target="$1"
+    case "$target" in
+        "gemini")   echo "$HOME/.gemini/config/skills" ;;
+        "oh-my-pi") echo "$HOME/.agents/skills" ;;
+        *)          return 1 ;;
+    esac
+}
+
+get_target_description() {
+    local target="$1"
+    case "$target" in
+        "gemini")   echo "Google Antigravity / Gemini CLI (path: ~/.gemini/config/skills)" ;;
+        "oh-my-pi") echo "Oh My Pi / omp CLI (path: ~/.agents/skills)" ;;
+        *)          return 1 ;;
+    esac
+}
 
 # Find all valid skills (directories containing SKILL.md)
 get_available_skills() {
@@ -26,7 +35,9 @@ get_available_skills() {
             skills+=("$(basename "$item")")
         fi
     done
-    echo "${skills[@]}"
+    if [[ ${#skills[@]} -gt 0 ]]; then
+        echo "${skills[@]}"
+    fi
 }
 
 print_usage() {
@@ -57,8 +68,11 @@ EOF
 list_targets() {
     echo "Registered Sync Targets:"
     for target in "${REGISTERED_TARGETS[@]}"; do
-        printf "  - %-12s : %s\n" "$target" "${TARGET_DESCRIPTIONS[$target]}"
-        printf "    Destination  : %s\n" "${TARGET_PATHS[$target]}"
+        local desc dest
+        desc="$(get_target_description "$target")"
+        dest="$(get_target_path "$target")"
+        printf "  - %-12s : %s\n" "$target" "$desc"
+        printf "    Destination  : %s\n" "$dest"
     done
     echo
     echo "Available Skills:"
@@ -75,11 +89,17 @@ list_targets() {
 sync_target() {
     local target="$1"
     local dry_run="$2"
-    local dest_dir="${TARGET_PATHS[$target]}"
+    local dest_dir
+    local desc
+    dest_dir="$(get_target_path "$target")" || {
+        echo "Error: Unknown target '$target'" >&2
+        return 1
+    }
+    desc="$(get_target_description "$target")"
+
+    echo "==> Target: $target ($desc)"
+
     local skills=($(get_available_skills))
-
-    echo "==> Target: $target (${TARGET_DESCRIPTIONS[$target]})"
-
     if [[ ${#skills[@]} -eq 0 ]]; then
         echo "    No skills found to synchronize."
         return 0
@@ -134,7 +154,7 @@ main() {
         for target in "${REGISTERED_TARGETS[@]}"; do
             sync_target "$target" "$dry_run"
         done
-    elif [[ -n "${TARGET_PATHS[$selected_target]:-}" ]]; then
+    elif get_target_path "$selected_target" >/dev/null 2>&1; then
         sync_target "$selected_target" "$dry_run"
     else
         echo "Error: Unknown target '$selected_target'" >&2

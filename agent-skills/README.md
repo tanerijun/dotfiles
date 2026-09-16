@@ -88,12 +88,19 @@ To sync only a specific agent harness, pass its target key:
 To support an additional agent harness:
 
 1. Open `symlink-agent-skills.sh`.
-2. Add the target key and its global path to the associative arrays:
-   ```bash
-   TARGET_PATHS["new-agent"]="$HOME/.config/new-agent/skills"
-   TARGET_DESCRIPTIONS["new-agent"]="New Agent CLI (~/.config/new-agent/skills)"
-   ```
-3. Add the key to `REGISTERED_TARGETS`:
+2. Add the target key to `REGISTERED_TARGETS`:
    ```bash
    REGISTERED_TARGETS=("gemini" "oh-my-pi" "new-agent")
+   ```
+3. Add the mapping cases in `get_target_path` and `get_target_description`:
+   ```bash
+   get_target_path() {
+       local target="$1"
+       case "$target" in
+           "gemini")    echo "$HOME/.gemini/config/skills" ;;
+           "oh-my-pi")  echo "$HOME/.agents/skills" ;;
+           "new-agent") echo "$HOME/.config/new-agent/skills" ;;
+           *)           return 1 ;;
+       esac
+   }
    ```
